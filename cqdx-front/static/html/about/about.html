@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/about.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+</head>
+<body>
+<div id="vue_det">
+    <!--头部-->
+    <div class="header">
+        <iframe src="../header/header5.html" width="100%" height="70px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+        <div class="divider"></div>
+    </div>
+    <!--中间内容-->
+    <div class="content">
+        <div class="line1">
+            <div class="parent">
+                <div class="parent-item">
+                    <div class="line1-title">
+                        关于我们
+                    </div>
+                    <div class="line1-content">
+                        &#12288;&#12288;晨启兄弟科技发展有限公司专注于智能物联网、高精度北斗定位关键技术研发，依托自主研发的“天衣物联”技术平台，通过“开发快”物联网社区运营，致力于成为“行业智能化助力者”。同时，为北京、上海、深圳、广州、重庆、成都、杭州、南京、武汉、长沙、西安、佛山、天津等城市提供物联网软硬件定制和智能硬件开发外包服务，是领先的物联网解决方案公司。
+                        <br>&#12288;&#12288;晨启兄弟由中富投资集团、用友幸福、北斗物联、北斗航天国科等投资，核心团队拥有10年以上航天航空、卫星应用、物联网、无线通信及移动互联网相关领域经验，员工超过200人，其中研发人员超过100人。在跨专业技术融合、复杂大系统建设方面具有独特优势。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line2">
+            <div class="parent">
+                <el-row>
+                    <el-col span="8" v-for="(item,position) in 3">
+                        <div class="line2-item" :id="'line2'+position" @mouseenter="enterLine2(position)">
+                            <div class="line2-title">5000+</div>
+                            <div class="line2-content">连接设备超过50万台</div>
+                            <div class="line2-divider"></div>
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+        </div>
+        <div class="line3">
+            <div class="parent">
+                <div class="line3-item">
+                    <div class="line3-item-title">晨启兄弟做什么</div>
+                    <div class="line3-item-content">
+                        &#12288;&#12288;解决设备与设备、设备与平台、设备与手机的相互通信，提供低功耗低成本的物联网wifi模块、智能GPRS+GPS模块、智能Lora模块、智能主控板、北斗高精度定位板卡、物联网开发板等适用于智能家居、智能家电、智能智造、智能交通、智能工业、智能农业等行业的物联网模块，提供免费的物联网云平台和开源手机SDK。应用案例包括：共享单车、智能门锁、智能机械、智能地锁、智能仓储、智能医疗、智能鱼缸、智能咖啡机等。基于开发快平台，一周即可实现产品的智能化升级。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line4">
+            <div class="parent">
+                <div class="line4-item">
+                    <div class="line4-item-title">晨启兄弟的服务</div>
+                    <el-row>
+                        <el-col span="6" v-for="item in 8">
+                            <div class="line4-item2">
+                                <img src="../../img/ic_test1.png" style="width: 40%">
+                                <div>智能硬件定制开发</div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#vue_det',
+        data: {},
+        methods: {
+            enterLine2: function (position) {
+                var animationEnd = (function (el) {
+                    var animations = {
+                        animation: 'animationend',
+                        OAnimation: 'oAnimationEnd',
+                        MozAnimation: 'mozAnimationEnd',
+                        WebkitAnimation: 'webkitAnimationEnd',
+                    };
+
+                    for (var t in animations) {
+                        if (el.style[t] !== undefined) {
+                            return animations[t];
+                        }
+                    }
+                })(document.createElement('div'));
+                $('#line2' + position).addClass('animated pulse').one(animationEnd, function () {
+                    $('#line2' + position).removeClass('animated pulse');
+                });
+
+            },
+        },
+        created: function() {
+            var animationEnd = (function (el) {
+                var animations = {
+                    animation: 'animationend',
+                    OAnimation: 'oAnimationEnd',
+                    MozAnimation: 'mozAnimationEnd',
+                    WebkitAnimation: 'webkitAnimationEnd',
+                };
+
+                for (var t in animations) {
+                    if (el.style[t] !== undefined) {
+                        return animations[t];
+                    }
+                }
+            })(document.createElement('div'));
+            $('.line2').addClass('animated bounceInLeft').one(animationEnd, function () {
+                $('.line2').removeClass('animated bounceInLeft');
+            });
+        }
+    })
+</script>
+</html>

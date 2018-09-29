@@ -1,0 +1,91 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.parent {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    background-color: #181c25;
+    display: flex;
+    align-items: center;
+}
+
+.header .title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header .title .left {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header .logo-img {
+    height: 60px;
+}
+
+.header .logo {
+    margin-right: 50px;
+    margin-left: 5px;
+}
+
+.header .logo .name {
+    color: white;
+    font-size: 18px;
+}
+
+.header .logo .domain {
+    color: white;
+    font-size: 14px;
+}
+
+.header .title .right {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.header .item {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.header .item .name-on {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 15px;
+    border-bottom: 1.5px solid #5e98ff;
+    height: 100%;
+    color: #5e98ff;
+}
+
+.header .item .name-off {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 15px;
+    height: 100%;
+    color: #ffffff;
+}

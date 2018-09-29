@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户案例</title>
+    <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/product.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+</head>
+<body>
+<div id="vue_det">
+    <!--头部-->
+    <div class="header">
+        <iframe src="../header/header2.html" width="100%" height="70px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+        <div class="divider"></div>
+    </div>
+    <!--中间内容-->
+    <div class="content">
+        <img class="top-image" src="../../img/ic_al2.jpg"/>
+        <div class="parent">
+            <div class="title">
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                    <el-tab-pane label="全部" name="first"></el-tab-pane>
+                    <el-tab-pane label="移动产品" name="second"></el-tab-pane>
+                    <el-tab-pane label="智能产品" name="third"></el-tab-pane>
+                    <el-tab-pane label="金融产品" name="fourth"></el-tab-pane>
+                    <el-tab-pane label="研发中" name="five"></el-tab-pane>
+                </el-tabs>
+            </div>
+            <el-row :gutter="30">
+                <el-col span="8" v-for="(item,position) in 12">
+                    <div :id="'item'+position" class="item" @mouseenter="enterItem(position)">
+                        <img src="http://www.gizwits.com/media/cache/e6/a6/e6a6a63260324c5ecfa3be7cac8197ba.jpg">
+                        <div class="item-title">还原清新空气，生活会越来越好</div>
+                        <div class="item-content">家的感觉，你我的责任，的方的方式都发展速度饭的方式都发展速度饭式都发展速度饭</div>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
+    </div>
+    <!--底部-->
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#vue_det',
+        data: {
+            activeName: 'first'
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            enterItem: function (position) {
+                var animationEnd = (function (el) {
+                    var animations = {
+                        animation: 'animationend',
+                        OAnimation: 'oAnimationEnd',
+                        MozAnimation: 'mozAnimationEnd',
+                        WebkitAnimation: 'webkitAnimationEnd',
+                    };
+
+                    for (var t in animations) {
+                        if (el.style[t] !== undefined) {
+                            return animations[t];
+                        }
+                    }
+                })(document.createElement('div'));
+                $('#item' + position).addClass('animated pulse').one(animationEnd, function () {
+                    $('#item' + position).removeClass('animated pulse');
+                });
+
+            }
+        }
+    })
+</script>
+</html>

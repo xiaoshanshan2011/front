@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+</head>
+<body>
+<!--头部-->
+<div class="header" id="header">
+    <div class="parent">
+        <div class="title">
+            <div class="left">
+                <img class="logo-img" src="../../img/logo.png">
+                <div class="logo">
+                    <div class="name">晨启兄弟</div>
+                    <div class="domain">itchenqi.com</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="item" v-for="(title , position) in titles" @click="clickItem(position)">
+                    <div class="name" :class="title.isCheck?'name-on':'name-off'"
+                         @mouseenter="enter(position)"
+                         @mouseleave="leave(position)">{{title.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#header',
+        data: {
+            titles: [
+                {
+                    name: '首页',
+                    isCheck: true
+                },
+                {
+                    name: '客户案例',
+                    isCheck: false
+                },
+                {
+                    name: '产品服务',
+                    isCheck: false
+                },
+                {
+                    name: '新闻中心',
+                    isCheck: false
+                },
+                {
+                    name: '关于我们',
+                    isCheck: false
+                }
+            ]
+        },
+        methods: {
+            clickItem: function (position) {
+                switch (position) {
+                    case 1:
+                        parent.location.href = '../product/product.html';
+                        break;
+                    case 2:
+                        parent.location.href = '../plan/plan.html';
+                        break;
+                    case 3:
+                        parent.location.href = '../news/news.html';
+                        break;
+                    case 4:
+                        parent.location.href = '../about/about.html';
+                        break;
+                }
+            },
+            enter: function (position) {
+                if (position !== 0) {
+                    this.titles[position].isCheck = true;
+                }
+            },
+            leave: function (position) {
+                if (position !== 0) {
+                    this.titles[position].isCheck = false;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+.header {
+    height: 71px;
+    width: 100%;
+    background-color: #181c25;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+}
+
+.content {
+    width: 100%;
+    margin-top: 70px;
+}
+
+.lien1 {
+
+}
+
+.plan-left {
+    width: 200px;
+    position: fixed;
+    top: 71px;
+    box-shadow: 0px 35px 77px -17px rgba(0, 0, 0, 0.44);
+    background-color: #151b25;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 30px;
+}
+
+.plan-left .left-item {
+    margin-bottom: 30px;
+}
+
+.plan-left .left-item .line-child-tile-off {
+    margin: 20px 0 20px 25px;
+    font-size: 13px;
+    color: white;
+}
+.plan-left .left-item .line-child-tile-on {
+    margin: 20px 0 20px 25px;
+    font-size: 13px;
+    color: #5e98ff;
+}
+
+.plan-left .line-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+
+}
+
+.line1 .top {
+    width: 100%;
+    height: 400px;
+    background-color: #282c37;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.line1 .bottom {
+    width: 100%;
+    height: auto;
+}
+
+.plan-top-content {
+    padding-left: 280px;
+    color: #ffffff;
+    width: 30%;
+}
+
+.plan-bottom-content {
+    padding-left: 280px;
+}
+
+.plan-top-content .title {
+    font-size: 30px;
+}
+
+.plan-top-content .content {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.line1 .top img {
+    width: 10%;
+    margin-left: 50px;
+}
+
+.fajj {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.fajj-divier {
+    height: 23px;
+    width: 3px;
+    background-color: #5e98ff
+}
+
+.fajj-title {
+    font-size: 23px;
+    color: black;
+    margin-left: 20px;
+}
+
+.fajj-content {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666666;
+    margin-left: 20px;
+    width: 800px;
+    line-height: 25px;
+}
+
+.fagn-content {
+    margin-left: 20px;
+    width: 800px;
+    margin-top: 20px;
+}
+
+.fagn-content .item {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+}
+.fagn-content .item .title{
+    margin-left: 5%;
+    width: 90%;
+    line-height: 40px;
+    font-size: 15px;
+    color: #3c88ff;
+}
+.fagn-content .item .details{
+    margin-left: 5%;
+    width: 90%;
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.plan-bottom-content img{
+    margin: 50px 30px;
+    width: 800px;
+}
+
+

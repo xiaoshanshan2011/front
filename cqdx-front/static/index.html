@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+</head>
+<body>
+<div id="vue_det">
+    <!--头部-->
+    <div class="header">
+        <iframe src="html/header/header1.html" width="100%" height="70px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+        <div class="divider"></div>
+    </div>
+    <!--中间内容-->
+    <div class="content">
+        <div class="line1">
+            <el-carousel :interval="5000" style="height: 600px" arrow="never">
+                <el-carousel-item v-for="item in 4" :key="item" style="height: 600px">
+                    <div class="parent">
+                        <div class="h-scroll-item">
+                            <div class="line1-left">
+                                <div class="line1-title">用数据为企业成长和产业发展导航</div>
+                                <div class="line1-content">打造产业链与资金链的全景数字云地图，以数据和数据分析工具为<br/>企业成长和产业发展助力</div>
+                                <el-button class="line1-btn" type="primary" plain>立即查看</el-button>
+                            </div>
+                            <img src="img/ic_home1.png">
+                        </div>
+                    </div>
+                </el-carousel-item>
+            </el-carousel>
+        </div>
+        <div class="line2">
+            <div class="parent">
+                <div class="line-title">
+                    <i class="el-icon-menu"></i>
+                    <div style="margin-left: 30px">产品体系</div>
+                </div>
+                <div class="line2-item-parent">
+                    <div class="line2-item" v-for="(item, position) in 3">
+                        <img :id="'line2-item'+position"
+                             src="https://www.innotree.cn/static/inno/img/index_20180222_02_01.png"
+                             @mouseenter="enter(position)">
+                        <div class="item-title">解决方案</div>
+                        <div class="line2-item-divider"></div>
+                        <div class="item-content">
+                            帮助用户通过名称、标签、行业、产业链图谱等多维度实现对公司、投资机构以及行业研究报告的搜索和筛选，并且针对搜索结果提供快速统计和趋势分析。同时针对企业和投资机构，提供包括工商参控股、产品以及投资历史等详情信息
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line3">
+            <div class="parent">
+                <div class="line3-title">
+                    <i class="el-icon-menu"></i>
+                    <div style="margin-left: 20px">核心竞争力</div>
+                </div>
+                <div class="line3-item-parent">
+                    <el-row type="flex" justify="space-around">
+                        <el-col :span="7" v-for="(item, position) in 3">
+                            <div class="line3-item" :id="'line3-item'+position" @mouseenter="enterLine3(position)">
+                                <img src="img/ic_home1.png">
+                                <div class="item3-title">解决方案</div>
+                                <div class="item3-content">
+                                    帮助用户通过名称、标签、行业、产业链图谱等多维度实现对公司、投资机构以及行业研究报告的搜索和筛选，并且针对搜索结果提供快速统计和趋势分析。同时针对企业和投资机构，提供包括工商参控股、产品以及投资历史等详情信息
+                                </div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+        </div>
+        <div class="line4">
+
+        </div>
+    </div>
+    <!--联系-->
+    <div class="contact">
+        <iframe src="html/contact.html" width="100%" height="200px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#vue_det',
+        data: {},
+        methods: {
+            enter: function (position) {
+                var animationEnd = (function (el) {
+                    var animations = {
+                        animation: 'animationend',
+                        OAnimation: 'oAnimationEnd',
+                        MozAnimation: 'mozAnimationEnd',
+                        WebkitAnimation: 'webkitAnimationEnd',
+                    };
+
+                    for (var t in animations) {
+                        if (el.style[t] !== undefined) {
+                            return animations[t];
+                        }
+                    }
+                })(document.createElement('div'));
+                $('#line2-item' + position).addClass('animated bounce').one(animationEnd, function () {
+                    $('#line2-item' + position).removeClass('animated bounce');
+                });
+
+            },
+            enterLine3: function (position) {
+                var animationEnd = (function (el) {
+                    var animations = {
+                        animation: 'animationend',
+                        OAnimation: 'oAnimationEnd',
+                        MozAnimation: 'mozAnimationEnd',
+                        WebkitAnimation: 'webkitAnimationEnd',
+                    };
+
+                    for (var t in animations) {
+                        if (el.style[t] !== undefined) {
+                            return animations[t];
+                        }
+                    }
+                })(document.createElement('div'));
+                $('#line3-item' + position).addClass('animated pulse').one(animationEnd, function () {
+                    $('#line3-item' + position).removeClass('animated pulse');
+                });
+
+            }
+        }
+    })
+</script>
+</html>

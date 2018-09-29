@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/news.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+</head>
+<body>
+<div id="vue_det">
+    <!--头部-->
+    <div class="header">
+        <iframe src="../header/header4.html" width="100%" height="70px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+        <div class="divider"></div>
+    </div>
+    <!--中间内容-->
+    <div class="content">
+        <img class="top-image" src="../../img/ic_news.jpg"/>
+        <div class="parent">
+            <div class="title">
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                    <el-tab-pane label="全部" name="first"></el-tab-pane>
+                    <el-tab-pane label="企业资讯" name="second"></el-tab-pane>
+                    <el-tab-pane label="行业资讯" name="five"></el-tab-pane>
+                </el-tabs>
+            </div>
+            <el-row :gutter="30">
+                <el-col span="8" v-for="(item,position) in 12">
+                    <div class="item" :id="'item'+position" @mouseenter="enterItem(position)">
+                        <img src="http://p3.pstatp.com/large/pgc-image/15329983486571b9027ea07">
+                        <div class="item-title"><u>全球最大快递公司：超过500架飞机送货，一年收入等于6个顺丰</u></div>
+                        <div class="item-time">2018-08-19</div>
+                        <div class="item-content">UPS快递 (United Parcel Service)是世界上最大的快递承运商与包裹递送公司，同时也是专业的运输、物流、资本与电子商务服务的领导性的提供者。</div>
+                    </div>
+                </el-col>
+            </el-row>
+            <div class="block">
+                <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[100, 200, 300, 400]"
+                        :page-size="100"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="400">
+                </el-pagination>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#vue_det',
+        data: {
+            activeName: 'first',
+            currentPage: 4
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+            },
+            handleCurrentChange(val) {
+                console.log(`当前页: ${val}`);
+            },
+            enterItem: function (position) {
+                var animationEnd = (function (el) {
+                    var animations = {
+                        animation: 'animationend',
+                        OAnimation: 'oAnimationEnd',
+                        MozAnimation: 'mozAnimationEnd',
+                        WebkitAnimation: 'webkitAnimationEnd',
+                    };
+
+                    for (var t in animations) {
+                        if (el.style[t] !== undefined) {
+                            return animations[t];
+                        }
+                    }
+                })(document.createElement('div'));
+                $('#item' + position).addClass('animated pulse').one(animationEnd, function () {
+                    $('#item' + position).removeClass('animated pulse');
+                });
+
+            },
+        }
+    })
+</script>
+</html>

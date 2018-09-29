@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/plan.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+</head>
+<body>
+<div id="vue_det">
+    <!--头部-->
+    <div class="header">
+        <iframe src="../header/header3.html" width="100%" height="70px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+        <div class="divider"></div>
+    </div>
+    <!--中间内容-->
+    <div class="content">
+        <div class="line1">
+            <div class="plan-left">
+                <div class="left-item" v-for="(item,index1) in data">
+                    <div class="line-title">
+                        <i class="el-icon-menu"></i>
+                        <div style="margin-left: 10px">{{item.name}}</div>
+                    </div>
+                    <div class="line-child-tile"
+                         :class="item.isCheck || item.isClick?'line-child-tile-on':'line-child-tile-off'"
+                         v-for="(item,index2) in item.data" @mouseenter="enter(index1,index2)"
+                         @mouseleave="leave(index1,index2)">
+                        {{item.name}}
+                    </div>
+                </div>
+            </div>
+            <div class="top">
+                <div class="plan-top-content">
+                    <div class="title">机场/港口智能协调决策</div>
+                    <div class="content">
+                        解决方案航班运营管理系统利用信息化技术，通过多源数据的实时交互和共享、关键节点的协同决策、部门间的工作流程整合、加强对于车辆使用的监管与通过辅助驾驶手段提高驾驶的准确性，强化数据获取、数据处理、业务支持、智能决策能力和安全生产能力
+                    </div>
+                    <div style="margin-top: 50px;display: flex;flex-direction: row">
+                        <el-button type="primary" plain>方案咨询</el-button>
+                        <el-button type="primary" plain style="margin-left: 40px">应用案例</el-button>
+                    </div>
+                </div>
+                <img src="../../img/ic_home1.png">
+            </div>
+            <div class="bottom">
+                <div class="plan-bottom-content">
+                    <el-tabs v-model="activeName" @tab-click="handleClick">
+                        <el-tab-pane label="方案简介" name="first"></el-tab-pane>
+                        <el-tab-pane label="方案功能" name="second"></el-tab-pane>
+                        <el-tab-pane label="总体设计" name="third"></el-tab-pane>
+                        <el-tab-pane label="业务流程" name="fourth"></el-tab-pane>
+                        <el-tab-pane label="应用案例" name="five"></el-tab-pane>
+                    </el-tabs>
+                    <div class="fajj">
+                        <div class="fajj-divier"></div>
+                        <div class="fajj-title">方案简介</div>
+                    </div>
+                    <div class="fajj-content">
+                        传统行业中的家电、传感设备、摄像头等是以传统硬件的方式进行生产与销售，依靠硬件厂商、代理商、销售渠道来最终销售给终端客户。各硬件厂商无法建立与终端客户的直接沟通方式，无法直接服务和支持到最终的客户。各个设备的工作以及售后维修等情况也无法及时有效的获取，无法通过大数据分析优化与配置产品。
+                        <br/><br/>易通星云提供的智能家电智能硬件解决方案，将传统硬件设备接入物联网，可实时获取硬件设备数据，方便进行远程设备控制，快速建立客户与设备、厂商与设备的连接。通过数据分析与处理得到及时与真实的产品以及售卖信息，最终使得产品迭代明确、用户需求明确、售后服务高效、用户使用方便、服务更加个性化。
+                    </div>
+                    <div class="fajj">
+                        <div class="fajj-divier"></div>
+                        <div class="fajj-title">方案功能</div>
+                    </div>
+                    <div class="fagn-content">
+                        <el-row :gutter="20">
+                            <el-col span="8" v-for="(item, position) in 5">
+                                <div :id="'fagn'+position" class="item" @mouseenter="enterFagn(position)">
+                                    <div style="height: 40px;background-color: #e3ecef">
+                                        <div class="title">智能指令控制系统</div>
+                                    </div>
+                                    <div class="details">通过无线网络，适时上报车辆的安全状态、位置、速度信息</div>
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </div>
+                    <div class="fajj">
+                        <div class="fajj-divier"></div>
+                        <div class="fajj-title">总体设计</div>
+                    </div>
+                    <img src="http://www.kaifakuai.com/img/ddc_bg02.jpg">
+                    <img src="http://www.kaifakuai.com/img/ddc_bg03.jpg">
+                    <div class="fajj">
+                        <div class="fajj-divier"></div>
+                        <div class="fajj-title">业务流程</div>
+                    </div>
+                    <img src="http://www.kaifakuai.com/img/ddc_bg05.jpg">
+                    <div class="fajj">
+                        <div class="fajj-divier"></div>
+                        <div class="fajj-title">应用案例</div>
+                    </div>
+                    <img src="http://www.kaifakuai.com/img/kfj_bg4.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#vue_det',
+        data: {
+            activeName: 'first',
+            data: [
+                {
+                    name: '行业解决方案',
+                    data: [
+                        {
+                            name: '智能家电/智能家居',
+                            isCheck: false,
+                            isClick: true
+                        },
+                        {
+                            name: '工业智能物联网/传感云',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '非道路车辆智能辅助驾驶',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '机场/港口智能协调决策',
+                            isCheck: false,
+                            isClick: false
+                        },
+                    ]
+                },
+                {
+                    name: '典型应用方案',
+                    data: [
+                        {
+                            name: '智能鱼缸解决方案',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '智能照明解决方案',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '智能咖啡机解决方案',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '智能空气净化器',
+                            isCheck: false,
+                            isClick: false
+                        },
+                    ]
+                }
+            ]
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            enter: function (index1, index2) {
+                for (let i = 0; i < this.data.length; i++) {
+                    for (let j = 0; j < this.data[i].data.length; j++) {
+                        if (i === index1 && j === index2) {
+                            this.data[i].data[j].isCheck = true
+                        } else {
+                            this.data[i].data[j].isCheck = false
+                        }
+                    }
+                }
+            },
+            leave: function () {
+                for (let i = 0; i < this.data.length; i++) {
+                    for (let j = 0; j < this.data[i].data.length; j++) {
+                        this.data[i].data[j].isCheck = false
+                    }
+                }
+            },
+            enterFagn: function (position) {
+                var animationEnd = (function (el) {
+                    var animations = {
+                        animation: 'animationend',
+                        OAnimation: 'oAnimationEnd',
+                        MozAnimation: 'mozAnimationEnd',
+                        WebkitAnimation: 'webkitAnimationEnd',
+                    };
+
+                    for (var t in animations) {
+                        if (el.style[t] !== undefined) {
+                            return animations[t];
+                        }
+                    }
+                })(document.createElement('div'));
+                $('#fagn' + position).addClass('animated pulse').one(animationEnd, function () {
+                    $('#fagn' + position).removeClass('animated pulse');
+                });
+
+            },
+        },
+        mounted() {
+            var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+            windowHeight = windowHeight - 71
+            $(".line1").height(windowHeight)
+        }
+    })
+</script>
+</html>

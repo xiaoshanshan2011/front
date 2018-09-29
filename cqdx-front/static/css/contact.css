@@ -1,0 +1,25 @@
+.content {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    height: 100%;
+    width: 160px;
+    background-color: #3c88ff;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 40px;
+    background-color: #abcdef;
+    align-items: center;
+}
+.right img{
+    width: 40px;
+    height: 40px;
+}
