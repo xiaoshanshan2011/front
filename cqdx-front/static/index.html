@@ -45,14 +45,14 @@
                     <div style="margin-left: 30px">产品体系</div>
                 </div>
                 <div class="line2-item-parent">
-                    <div class="line2-item" v-for="(item, position) in 3">
+                    <div class="line2-item" v-for="(item, position) in cptxData">
                         <img :id="'line2-item'+position"
                              src="https://www.innotree.cn/static/inno/img/index_20180222_02_01.png"
                              @mouseenter="enter(position)">
-                        <div class="item-title">解决方案</div>
+                        <div class="item-title">{{item.name}}</div>
                         <div class="line2-item-divider"></div>
                         <div class="item-content">
-                            帮助用户通过名称、标签、行业、产业链图谱等多维度实现对公司、投资机构以及行业研究报告的搜索和筛选，并且针对搜索结果提供快速统计和趋势分析。同时针对企业和投资机构，提供包括工商参控股、产品以及投资历史等详情信息
+                            {{item.content}}
                         </div>
                     </div>
                 </div>
@@ -62,16 +62,16 @@
             <div class="parent">
                 <div class="line3-title">
                     <i class="el-icon-menu"></i>
-                    <div style="margin-left: 20px">核心竞争力</div>
+                    <div style="margin-left: 20px">核心优势</div>
                 </div>
                 <div class="line3-item-parent">
                     <el-row type="flex" justify="space-around">
-                        <el-col :span="7" v-for="(item, position) in 3">
+                        <el-col :span="7" v-for="(item, position) in hxysData">
                             <div class="line3-item" :id="'line3-item'+position" @mouseenter="enterLine3(position)">
                                 <img src="img/ic_home1.png">
-                                <div class="item3-title">解决方案</div>
+                                <div class="item3-title">{{item.name}}</div>
                                 <div class="item3-content">
-                                    帮助用户通过名称、标签、行业、产业链图谱等多维度实现对公司、投资机构以及行业研究报告的搜索和筛选，并且针对搜索结果提供快速统计和趋势分析。同时针对企业和投资机构，提供包括工商参控股、产品以及投资历史等详情信息
+                                    {{item.content}}
                                 </div>
                             </div>
                         </el-col>
@@ -94,7 +94,42 @@
 <script type="text/javascript">
     new Vue({
         el: '#vue_det',
-        data: {},
+        data: {
+            cptxData: [
+                {
+                    name: "家庭安防",
+                    content: "通过智能产品自动探测发生在布防监测区域内的侵入行为，并提示主任发生报警的区域部位，移动手机app的方式借助互联网实现实时监控",
+                    image: ""
+                },
+                {
+                    name: "智慧新零售",
+                    content: "自动售卖机最多的优势是占地面积小，不需要太多的人力去维护，大大的节省了商家成本。可铺设在人流密集的各种场合，低成本投入高回报将不是梦想",
+                    image: ""
+                },
+                {
+                    name: "智能移动存储",
+                    content: "该系统可实时监控设备仪器的状态，能做到有问题提前发现，提前解决。解决各企业因设备故障而造成的成本增加问题",
+                    image: ""
+                }
+            ],
+            hxysData: [
+                {
+                    name: "团队优势",
+                    content: "团队成员均是本科及以上学历，已帮助多家公司完成智能产品的定制，并帮助企业制定商业化推广方案的完善。技术方面在范炳新（原郑州防空兵学院研究所某实验室负责人，纳米活性炭大容量超级电容器研发及投入生产者），韩天兵（毕业于华北水利水电大学，拥有8项发明专利），黄意（原唯品会架构师）的带领下，有能力开发市面见到的所有智能产品",
+                    image: ""
+                },
+                {
+                    name: "技术优势",
+                    content: "拥有自己的核心技术硬件方面包括且不限于掌握 STC 系列，PIC、AVR、MSP430、STM8、STM32F（包括 L 低功耗类）、新唐等多系列处理器的开发，精通应用 Altium Designer 对硬件原理图和线路板的设计，成功移植 uCGUI 到 ARM 系统中。熟悉并应用uCOS-Ⅲ操作系统设计产品，射频读卡系统产品开发。软件方面精通智能聚合服务，分布式服务，群集服务，数据容灾服务的开发和使用同时拥有区块链交易所的开发能力，结合最新技术使软件更加的稳定，数据更加的安全",
+                    image: ""
+                },
+                {
+                    name: "价格优势",
+                    content: "核心技术的优势保障了我们产品的质量，在保障质量的前提下结合超级买卖的模式实现成本的控制，我们将持续提升生产效率让产品价格控制在大众消费层次，把智能带给千万家",
+                    image: ""
+                }
+            ]
+        },
         methods: {
             enter: function (position) {
                 var animationEnd = (function (el) {

@@ -29,6 +29,8 @@
 }
 .item img{
     width: 100%;
+    height: 350px;
+    object-fit: cover;
 }
 .item .item-title{
     margin: 5px 20px;

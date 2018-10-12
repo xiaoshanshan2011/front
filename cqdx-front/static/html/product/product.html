@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>客户案例</title>
+    <title>成功案例</title>
     <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/product.css">
@@ -26,19 +26,20 @@
         <div class="parent">
             <div class="title">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
-                    <el-tab-pane label="全部" name="first"></el-tab-pane>
-                    <el-tab-pane label="移动产品" name="second"></el-tab-pane>
-                    <el-tab-pane label="智能产品" name="third"></el-tab-pane>
-                    <el-tab-pane label="金融产品" name="fourth"></el-tab-pane>
-                    <el-tab-pane label="研发中" name="five"></el-tab-pane>
+                    <el-tab-pane label="智能产品" name="first"></el-tab-pane>
+                    <!--<el-tab-pane label="智能魔盒" name="second"></el-tab-pane>
+                    <el-tab-pane label="智能门锁" name="third"></el-tab-pane>
+                    <el-tab-pane label="智能售卖机" name="fourth"></el-tab-pane>
+                    <el-tab-pane label="物联网系统" name="five"></el-tab-pane>
+                    <el-tab-pane label="智能汽车配件" name="five"></el-tab-pane>-->
                 </el-tabs>
             </div>
             <el-row :gutter="30">
-                <el-col span="8" v-for="(item,position) in 12">
+                <el-col span="8" v-for="(item,position) in allData">
                     <div :id="'item'+position" class="item" @mouseenter="enterItem(position)">
-                        <img src="http://www.gizwits.com/media/cache/e6/a6/e6a6a63260324c5ecfa3be7cac8197ba.jpg">
-                        <div class="item-title">还原清新空气，生活会越来越好</div>
-                        <div class="item-content">家的感觉，你我的责任，的方的方式都发展速度饭的方式都发展速度饭式都发展速度饭</div>
+                        <img :src="'../../img/ic_'+item.image+'.png'">
+                        <div class="item-title">{{item.name}}</div>
+                        <div class="item-content">{{item.content}}</div>
                     </div>
                 </el-col>
             </el-row>
@@ -51,7 +52,46 @@
     new Vue({
         el: '#vue_det',
         data: {
-            activeName: 'first'
+            activeName: 'first',
+            select: [],
+            allData: [
+                {
+                    name: "智能魔盒",
+                    content: "1.外接存储\n" +
+                    "2.无线存储\n" +
+                    "3.远程访问\n" +
+                    "4.无线路由器\n" +
+                    "5.无线中继\n" +
+                    "6.手机备份\n" +
+                    "7.多人共享\n" +
+                    "8.智能软加密\n" +
+                    "9.影片推送至电视\n",
+                    image: "image1"
+                },
+                {
+                    name: "智能门锁",
+                    content: "1.关门自动上锁；\n" +
+                    "2.AI智能学习芯片；\n" +
+                    "3.开门信息推动；\n" +
+                    "4.9种开锁方式；\n" +
+                    "5.可接入智能家居系统\n",
+                    image: "image2"
+                },
+                {
+                    name: "智能售酒机",
+                    content: "1.白酒按需购买，单次出酒50ml-5000ml;\n" +
+                    "2.扎啤按需购买，单次出酒1L-3L;\n" +
+                    "3.扎啤出酒温度为3-7度；\n" +
+                    "4.支持微信扫码支付；\n" +
+                    "5.24寸触控广告屏\n",
+                    image: "image3"
+                },
+                {
+                    name: "智能充电",
+                    content: "全语音车载系统，可语音控制手机通话，点歌，导航查询等，无需手动，让驾驶更安全",
+                    image: "image4"
+                }
+            ]
         },
         methods: {
             handleClick(tab, event) {
