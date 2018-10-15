@@ -44,12 +44,17 @@
     color: #5e98ff;
 }
 
-.plan-left .line-title {
+.plan-left .line-title-off {
     display: flex;
     flex-direction: row;
     align-items: center;
     color: white;
-
+}
+.plan-left .line-title-on {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #5e98ff;
 }
 
 .line1 .top {

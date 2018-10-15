@@ -25,23 +25,24 @@
         <div class="line1">
             <div class="plan-left">
                 <div class="left-item" v-for="(item,index1) in data">
-                    <div class="line-title">
+                    <div :class="item.isCheck || item.isClick?'line-title-on':'line-title-off'"
+                         @mouseenter="enter(index1)"
+                         @mouseleave="leave(index1)" @click="onTab(index1)">
                         <i class="el-icon-menu"></i>
                         <div style="margin-left: 10px">{{item.name}}</div>
                     </div>
                     <div class="line-child-tile"
                          :class="item.isCheck || item.isClick?'line-child-tile-on':'line-child-tile-off'"
-                         v-for="(item,index2) in item.data" @mouseenter="enter(index1,index2)"
-                         @mouseleave="leave(index1,index2)">
+                         v-for="(item,index2) in item.data">
                         {{item.name}}
                     </div>
                 </div>
             </div>
             <div class="top">
                 <div class="plan-top-content">
-                    <div class="title">机场/港口智能协调决策</div>
+                    <div class="title">{{selectData.title}}</div>
                     <div class="content">
-                        解决方案航班运营管理系统利用信息化技术，通过多源数据的实时交互和共享、关键节点的协同决策、部门间的工作流程整合、加强对于车辆使用的监管与通过辅助驾驶手段提高驾驶的准确性，强化数据获取、数据处理、业务支持、智能决策能力和安全生产能力
+                        {{selectData.content}}
                     </div>
                     <div style="margin-top: 50px;display: flex;flex-direction: row">
                         <el-button type="primary" plain>方案咨询</el-button>
@@ -64,8 +65,7 @@
                         <div class="fajj-title">方案简介</div>
                     </div>
                     <div class="fajj-content">
-                        传统行业中的家电、传感设备、摄像头等是以传统硬件的方式进行生产与销售，依靠硬件厂商、代理商、销售渠道来最终销售给终端客户。各硬件厂商无法建立与终端客户的直接沟通方式，无法直接服务和支持到最终的客户。各个设备的工作以及售后维修等情况也无法及时有效的获取，无法通过大数据分析优化与配置产品。
-                        <br/><br/>易通星云提供的智能家电智能硬件解决方案，将传统硬件设备接入物联网，可实时获取硬件设备数据，方便进行远程设备控制，快速建立客户与设备、厂商与设备的连接。通过数据分析与处理得到及时与真实的产品以及售卖信息，最终使得产品迭代明确、用户需求明确、售后服务高效、用户使用方便、服务更加个性化。
+                        {{selectData.details}}
                     </div>
                     <div class="fajj">
                         <div class="fajj-divier"></div>
@@ -73,12 +73,12 @@
                     </div>
                     <div class="fagn-content">
                         <el-row :gutter="20">
-                            <el-col span="8" v-for="(item, position) in 5">
+                            <el-col span="8" v-for="(item, position) in selectData.function">
                                 <div :id="'fagn'+position" class="item" @mouseenter="enterFagn(position)">
                                     <div style="height: 40px;background-color: #e3ecef">
-                                        <div class="title">智能指令控制系统</div>
+                                        <div class="title">{{item.title}}</div>
                                     </div>
-                                    <div class="details">通过无线网络，适时上报车辆的安全状态、位置、速度信息</div>
+                                    <div class="details">{{item.content}}</div>
                                 </div>
                             </el-col>
                         </el-row>
@@ -113,62 +113,137 @@
             activeName: 'first',
             data: [
                 {
-                    name: '行业解决方案',
+                    isCheck: false,
+                    isClick: true,
+                    name: 'C.Q智慧酒店解决方案',
                     data: [
                         {
-                            name: '智能家电/智能家居',
-                            isCheck: false,
-                            isClick: true
-                        },
-                        {
-                            name: '工业智能物联网/传感云',
+                            name: '远程控制',
                             isCheck: false,
                             isClick: false
                         },
                         {
-                            name: '非道路车辆智能辅助驾驶',
+                            name: '自动节能',
                             isCheck: false,
                             isClick: false
                         },
                         {
-                            name: '机场/港口智能协调决策',
+                            name: '安全防护',
                             isCheck: false,
                             isClick: false
                         },
+                        {
+                            name: '设备线上管理',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '语音控制',
+                            isCheck: false,
+                            isClick: false
+                        }
                     ]
                 },
                 {
-                    name: '典型应用方案',
+                    isCheck: false,
+                    isClick: false,
+                    name: 'C.Q智慧家居解决方案',
                     data: [
                         {
-                            name: '智能鱼缸解决方案',
+                            name: '客厅灯光控制',
                             isCheck: false,
                             isClick: false
                         },
                         {
-                            name: '智能照明解决方案',
+                            name: '卧室安心睡眠/智能唤醒',
                             isCheck: false,
                             isClick: false
                         },
                         {
-                            name: '智能咖啡机解决方案',
+                            name: '厨房安全防护',
                             isCheck: false,
                             isClick: false
                         },
                         {
-                            name: '智能空气净化器',
+                            name: '家中无人安全警戒',
+                            isCheck: false,
+                            isClick: false
+                        },
+                        {
+                            name: '全屋离家模式',
                             isCheck: false,
                             isClick: false
                         },
                     ]
                 }
-            ]
+            ],
+            contentData: [
+                {
+                    title: "C.Q智慧酒店解决方案",
+                    content: "实时监测客房状态、宾客需求、服务状况以及设备情况等,前台可以远程、集中管理客房设备,具有节能、高效、为客人提供人性化服务、提升酒店管理水平和酒店形象等诸多优势",
+                    details: "智慧酒店系统,从传统酒店设备无线智能化升级出发,通过免布控制线减少酒店装修成本,前台统一集中管理,降低用电消耗,以此减少酒店运营成本。对客房的门牌系统、门锁系统、中央空调系统、智能灯光系统背景音乐系统、智能窗帘系统、智能插座系统、排气扇系统等进行智能化管理与控制",
+                    function: [
+                        {
+                            title: "远程控制",
+                            content: "宾客入住前, 服务人员即可远程控制房间状态, 开启空调、空气净化器等；宾客也可使用App远程控制房内电器, 随心调节客房状态"
+                        },
+                        {
+                            title: "自动节能",
+                            content: "智能设备自动判断房内是否处于无人状态, 关闭电器, 实现自动化节能；可设定多种场景, 提升住户体验的同时实现节能环保"
+                        },
+                        {
+                            title: "安全防护",
+                            content: "智能设备自动判断房间安全状况, 多种报警方式；可设定防盗/防火/防水等多种安防场景, 为宾客与酒店/民宿提供全方位安全保障"
+                        },
+                        {
+                            title: "设备线上管理",
+                            content: "在线查看所有智能设备状态, 远程一键管理；设备问题自动报警, 在线维护简单便捷"
+                        },
+                        {
+                            title: "语音控制",
+                            content: "语音控制客房所有设备, 智能化控制带来高科技体验；打造酒店/民宿独特品牌形象"
+                        }
+                    ]
+                },
+                {
+                    title: "C.Q智慧家居解决方案",
+                    content: "C.Q做智能家居的初衷就是全民普及全屋无线智能家居，让所有人都用得起、用得上，我们理解的“智能家居”，不是捧上天的“智能”，而是切实带给人的“方便”",
+                    details: "C.Q做智能家居的初衷就是全民普及全屋无线智能家居，让所有人都用得起、用得上；" +
+                    "我们理解的“智能家居”，不是捧上天的“智能”，而是切实带给人的“方便”；" +
+                    "我们不做噱头，不做“高大上”，不一味追求“颜值”，要知道：“羊毛出在羊身上”；" +
+                    "但我们对产品性价比和稳定性的追求从未停止",
+                    function: [
+                        {
+                            title: "客厅灯光控制",
+                            content: "根据会客、聚会、晚餐等场景调节灯光颜色与亮度等；远程控制, 离家万里也可尽在掌控；语音控制, 随心变换"
+                        },
+                        {
+                            title: "卧室安心睡眠/智能唤醒",
+                            content: "温湿度自动调节, 净化空气, 助眠安睡；自动感应, 起夜时亮起贴心灯光；清晨窗帘自动打开, 轻柔唤醒"
+                        },
+                        {
+                            title: "厨房安全防护",
+                            content: "发现早期火情, 物理报警并通知家人；及时发现可燃气泄露, 保护家人安全；第一时间获知漏水情况, 保护财产安全"
+                        },
+                        {
+                            title: "家中无人时安全警戒",
+                            content: "家中无人时, 门被打开, 自动通知家人；检测到异常情况时, 自动录像/远程查看家中情况；离家时自动布防"
+                        },
+                        {
+                            title: "全屋离/到家模式",
+                            content: "离家模式, 关闭屋中灯光、特定电器并切断某些电源；到家模式, 自动开灯、启动空调等；语音控制"
+                        }
+                    ]
+                }
+            ],
+            selectData: null
+
         },
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
             },
-            enter: function (index1, index2) {
+            /*enter: function (index1, index2) {
                 for (let i = 0; i < this.data.length; i++) {
                     for (let j = 0; j < this.data[i].data.length; j++) {
                         if (i === index1 && j === index2) {
@@ -178,11 +253,22 @@
                         }
                     }
                 }
+            },*/
+            enter: function (index1) {
+                for (let i = 0; i < this.data.length; i++) {
+                    for (let j = 0; j < this.data[i].data.length; j++) {
+                        if (i === index1) {
+                            this.data[i].isCheck = true
+                        } else {
+                            this.data[i].isCheck = false
+                        }
+                    }
+                }
             },
             leave: function () {
                 for (let i = 0; i < this.data.length; i++) {
                     for (let j = 0; j < this.data[i].data.length; j++) {
-                        this.data[i].data[j].isCheck = false
+                        this.data[i].isCheck = false
                     }
                 }
             },
@@ -206,11 +292,23 @@
                 });
 
             },
+            onTab: function (index1) {
+                for (let i = 0; i < this.data.length; i++) {
+                    this.selectData = this.contentData[index1]
+                    if (i === index1) {
+                        this.data[i].isClick = true
+                    } else {
+                        this.data[i].isClick = false
+                    }
+                }
+            }
         },
         mounted() {
             var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
             windowHeight = windowHeight - 71
             $(".line1").height(windowHeight)
+
+            this.selectData = this.contentData[1]
         }
     })
 </script>
