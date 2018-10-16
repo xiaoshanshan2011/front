@@ -23,14 +23,15 @@
     <!--中间内容-->
     <div class="content">
         <div class="line1">
-            <el-carousel :interval="5000" style="height: 600px" arrow="never">
-                <el-carousel-item v-for="item in 4" :key="item" style="height: 600px">
+            <el-carousel :interval="3000" style="height: 600px" arrow="never">
+                <el-carousel-item v-for="(item, position) in slideData" :key="item" style="height: 600px">
                     <div class="parent">
                         <div class="h-scroll-item">
                             <div class="line1-left">
-                                <div class="line1-title">用数据为企业成长和产业发展导航</div>
-                                <div class="line1-content">打造产业链与资金链的全景数字云地图，以数据和数据分析工具为<br/>企业成长和产业发展助力</div>
-                                <el-button class="line1-btn" type="primary" plain>立即查看</el-button>
+                                <div class="line1-title">{{item.title}}</div>
+                                <div class="line1-content">{{item.content}}</div>
+                                <el-button @click="toDetails(position)" class="line1-btn" type="primary" plain>立即查看
+                                </el-button>
                             </div>
                             <img src="img/ic_home1.png">
                         </div>
@@ -89,6 +90,13 @@
             您的浏览器不支持iframe，请升级
         </iframe>
     </div>
+
+    <!--底部-->
+    <div class="footer">
+        <iframe src="html/footer/footer.html" width="100%" height="130px" frameborder="0">
+            您的浏览器不支持iframe，请升级
+        </iframe>
+    </div>
 </div>
 </body>
 <script type="text/javascript">
@@ -127,6 +135,16 @@
                     name: "价格优势",
                     content: "核心技术的优势保障了我们产品的质量，在保障质量的前提下结合超级买卖的模式实现成本的控制，我们将持续提升生产效率让产品价格控制在大众消费层次，把智能带给千万家",
                     image: ""
+                }
+            ],
+            slideData: [
+                {
+                    title: "C.Q智慧酒店解决方案",
+                    content: "实时监测客房状态、宾客需求、服务状况以及设备情况等,前台可以远程、集中管理客房设备,具有节能、高效、为客人提供人性化服务、提升酒店管理水平和酒店形象等诸多优势"
+                },
+                {
+                    title: "C.Q智慧家居解决方案",
+                    content: "C.Q做智能家居的初衷就是全民普及全屋无线智能家居，让所有人都用得起、用得上，我们理解的“智能家居”，不是捧上天的“智能”，而是切实带给人的“方便”"
                 }
             ]
         },
@@ -170,6 +188,11 @@
                     $('#line3-item' + position).removeClass('animated pulse');
                 });
 
+            },
+            //跳转到详情
+            toDetails: function (position) {
+                var url = "html/plan/plan.html?position="+position;//此处拼接内容
+                window.location.href = url;
             }
         }
     })
