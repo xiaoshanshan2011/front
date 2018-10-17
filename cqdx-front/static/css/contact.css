@@ -23,3 +23,154 @@
     width: 40px;
     height: 40px;
 }
+
+/*footer_kf*/
+.kf #sticky {
+    width: 140px;
+    position: fixed;
+    right: 0;
+    top: 55%;
+    z-index: 9999;
+}
+
+.kf #sticky button {
+    display: block;
+    float: right;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+    background: #5F5F5F;
+    margin: 60px 0 0;
+}
+
+.kf #sticky button span {
+    display: block;
+    color: #5F5F5F;
+    height: 30px;
+    margin-top: -28px;
+    font-size: 16px
+}
+
+.kf .sticky-qq {
+    display: block;
+    float: right;
+    width: 100%;
+    margin-right: -95px;
+    height: 45px;
+    line-height: 45px;
+    background: #00C0FF;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    transition: margin .5s;
+    -moz-transition: margin .5s;
+    -webkit-transition: margin .5s;
+    -o-transition: margin .5s;
+}
+
+/*客服*/
+.kf .sticky-qq span {
+    float: left;
+    font-size: 14px;
+    text-align: left
+}
+
+.kf .sticky-qq .am-icon-qq {
+    display: block;
+    width: 45px;
+    font-size: 18px;
+    text-align: center
+}
+
+.kf .sticky-qq:hover {
+    color: #fff;
+    background: #00C0FF;
+    margin: 0
+}
+
+.kf #sticky button:hover {
+    background: #00C0FF
+}
+
+.kf #sticky button:hover span {
+    color: #00C0FF
+}
+
+.kf .qrc span {
+    display: block;
+    float: right;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background: #7FBE25
+}
+
+.kf .qrc .wx {
+    display: none;
+    float: left;
+    margin: -50px 50px 0 0;
+    background: #f5f5f5;
+    color: #f5f5f5;
+    padding: 5px;
+    z-index: 2
+}
+
+.kf .qrc .wx img {
+    width: 100%;
+    z-index: 99999
+}
+
+.kf .qrc:hover .wx {
+    display: block
+}
+
+.kf .qrc:hover span {
+    background: #7FBE25
+}
+
+.kf .sticky-phone {
+    display: block;
+    float: right;
+    width: 100%;
+    margin-right: -95px;
+    height: 45px;
+    line-height: 45px;
+    background: #FFB400;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    transition: margin .5s;
+    -moz-transition: margin .5s;
+    -webkit-transition: margin .5s;
+    -o-transition: margin .5s;
+}
+
+.kf .sticky-phone span {
+    float: left;
+    font-size: 12px;
+    text-align: left; /* margin: 20px; */
+}
+
+.kf .sticky-phone .am-icon-phone {
+    display: block;
+    width: 45px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.kf .sticky-phone:hover {
+    color: #fff;
+    background: #FFB400;
+    margin: 0
+}
+
+.clear {
+    clear: both
+}
