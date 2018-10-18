@@ -52,22 +52,7 @@
             <div class="parent">
                 <div class="line3-item">
                     <div class="line3-item-title">企业文化</div>
-                    <img src="../../img/ic_qywh.png">
-                </div>
-            </div>
-        </div>
-        <div class="line5">
-            <div class="parent">
-                <div class="line5-item">
-                    <div class="line5-item-title">公司优势</div>
-                    <el-row>
-                        <el-col span="8" v-for="item in 3">
-                            <div class="line5-item2">
-                                <img src="../../img/ic_test1.png" style="width: 100%">
-                                <div>智能硬件定制开发</div>
-                            </div>
-                        </el-col>
-                    </el-row>
+                    <img src="../../img/ic_qywh.png" style="width: 80%;margin: 50px 0 50px 50px;">
                 </div>
             </div>
         </div>
@@ -75,29 +60,29 @@
             <div class="parent">
                 <div class="line3-item">
                     <div class="line3-item-title">组织机构</div>
-                    <img src="../../img/ic_zzjg.png" style="margin: 50px 0">
+                    <img src="../../img/ic_zzjg.png" style="margin: 50px 0 50px 100px;width: 90%">
                 </div>
             </div>
         </div>
-        <div class="line3">
+        <div class="line3-qywh">
             <div class="parent">
                 <div class="line3-item">
-                    <div class="line3-item-title">晨启兄弟做什么</div>
-                    <div class="line3-item-content">
-                        &#12288;&#12288;解决设备与设备、设备与平台、设备与手机的相互通信，提供低功耗低成本的物联网wifi模块、智能GPRS+GPS模块、智能Lora模块、智能主控板、北斗高精度定位板卡、物联网开发板等适用于智能家居、智能家电、智能智造、智能交通、智能工业、智能农业等行业的物联网模块，提供免费的物联网云平台和开源手机SDK。应用案例包括：共享单车、智能门锁、智能机械、智能地锁、智能仓储、智能医疗、智能鱼缸、智能咖啡机等。基于开发快平台，一周即可实现产品的智能化升级。
-                    </div>
+                    <div class="line3-item-title">能力体系</div>
+                    <img src="../../img/ic_nltx.png" style="margin: 50px 0;width: 90%">
                 </div>
             </div>
         </div>
-        <div class="line4">
+        <div class="line5">
             <div class="parent">
-                <div class="line4-item">
-                    <div class="line4-item-title">晨启兄弟的服务</div>
-                    <el-row>
-                        <el-col span="6" v-for="item in 8">
-                            <div class="line4-item2">
-                                <img src="../../img/ic_test1.png" style="width: 40%">
-                                <div>智能硬件定制开发</div>
+                <div class="line5-item">
+                    <div class="line5-item-title">公司优势</div>
+                    <el-row style="width: 100%" type="flex" justify="space-around">
+                        <el-col span="4" v-for="item in gsysData">
+                            <div class="line5-item2">
+                                <img :src="'../../img/'+item.image" style="width: 35%">
+                                <div class="gsys-title">{{item.title}}</div>
+                                <div class="divider"></div>
+                                <div class="gsys-content"><pre>{{item.content}}</pre></div>
                             </div>
                         </el-col>
                     </el-row>
@@ -122,7 +107,38 @@
 <script type="text/javascript">
     new Vue({
         el: '#vue_det',
-        data: {},
+        data: {
+            gsysData: [
+                {
+                    image:"ic_tdys.png",
+                    title: "团队优势",
+                    content: "国际化视野及拓展能力\n" +
+                    "严谨的态度\n" +
+                    "持续的软硬件创新能力\n" +
+                    "对产业需求的深刻理解\n" +
+                    "完善的公司架构\n" +
+                    "团结完整的团队\n"
+                },
+                {
+                    image:"ic_gsys.png",
+                    title: "公司优势",
+                    content: "专注于软硬件一体ODM设计公司\n" +
+                    "强大可靠的能力体系\n" +
+                    "多年智能硬件的开发经验\n" +
+                    "珠三角完善的供应体系\n" +
+                    "全面的技术"
+                },
+                {
+                    image:"ic_hyys.png",
+                    title: "行业优势",
+                    content: "软硬件一体化解决方案\n" +
+                    "众多成功案例\n" +
+                    "优秀的客户资源\n" +
+                    "有成功的行业标杆\n" +
+                    "形成了高准入的行业门槛"
+                }
+            ]
+        },
         methods: {
             enterLine2: function (position) {
                 var animationEnd = (function (el) {
@@ -145,7 +161,7 @@
 
             },
         },
-        created: function() {
+        created: function () {
             var animationEnd = (function (el) {
                 var animations = {
                     animation: 'animationend',

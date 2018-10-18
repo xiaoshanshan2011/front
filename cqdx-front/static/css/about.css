@@ -142,7 +142,6 @@
 }
 
 .line5-item {
-    background-color: black;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -157,10 +156,20 @@
 }
 
 .line5-item2 {
-    background-color: #3c88ff;
     margin: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.gsys-title{
+    margin: 10px 0;
+    font-size: 25px;
+    color: #333;
+}
+.gsys-content{
+    margin: 15px 0;
+    font-size: 15px;
+    color: #666;
 }
