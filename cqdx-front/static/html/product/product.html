@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>成功案例</title>
+    <title>产品和案例</title>
     <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/product.css">
@@ -22,22 +22,29 @@
     </div>
     <!--中间内容-->
     <div class="content">
-        <img class="top-image" src="../../img/ic_al2.jpg"/>
+        <div class="top-image">
+            <el-row :gutter="15" type="flex" justify="center">
+                <el-col :span="4" v-for="item in hzhbData">
+                    <img :src="'../../img/'+item.image1"/>
+                    <img v-if="item.image2" :src="'../../img/'+item.image2"/>
+                </el-col>
+            </el-row>
+        </div>
         <div class="parent">
             <div class="title">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
                     <el-tab-pane label="智能产品" name="first"></el-tab-pane>
-                    <!--<el-tab-pane label="智能魔盒" name="second"></el-tab-pane>
-                    <el-tab-pane label="智能门锁" name="third"></el-tab-pane>
+                    <el-tab-pane label="成功案例" name="second"></el-tab-pane>
+                    <!--<el-tab-pane label="智能门锁" name="third"></el-tab-pane>
                     <el-tab-pane label="智能售卖机" name="fourth"></el-tab-pane>
                     <el-tab-pane label="物联网系统" name="five"></el-tab-pane>
                     <el-tab-pane label="智能汽车配件" name="five"></el-tab-pane>-->
                 </el-tabs>
             </div>
             <el-row :gutter="30">
-                <el-col span="8" v-for="(item,position) in allData">
+                <el-col span="8" v-for="(item,position) in selectData">
                     <div :id="'item'+position" class="item" @mouseenter="enterItem(position)">
-                        <img :src="'../../img/ic_'+item.image+'.png'">
+                        <img :src="'../../img/ic_'+item.image+'.jpg'">
                         <div class="item-title">{{item.name}}</div>
                         <div class="item-content">{{item.content}}</div>
                     </div>
@@ -64,8 +71,8 @@
         el: '#vue_det',
         data: {
             activeName: 'first',
-            select: [],
-            allData: [
+            selectData: [],
+            zncpData: [
                 {
                     name: "智能魔盒",
                     content: "1.外接存储\n" +
@@ -102,11 +109,62 @@
                     content: "全语音车载系统，可语音控制手机通话，点歌，导航查询等，无需手动，让驾驶更安全",
                     image: "image4"
                 }
+            ],
+            hzhbData:[
+                {
+                    image1:"ic_hzhb1.jpg",
+                    image2:"ic_hzhb6.jpg",
+                },
+                {
+                    image1:"ic_hzhb2.jpg",
+                    image2:"ic_hzhb7.jpg",
+                },
+                {
+                    image1:"ic_hzhb3.jpg",
+                    image2:"",
+                },
+                {
+                    image1:"ic_hzhb4.jpg",
+                    image2:"",
+                },
+                {
+                    image1:"ic_hzhb5.jpg",
+                    image2:"",
+                }
+            ],
+            cgalData:[
+                {
+                    name: "深圳市时光电子有限公司",
+                    content: "宝安区福永镇凤凰第一工业区华伦科技园21栋",
+                    image: "case1"
+                },
+                {
+                    name: "深圳市天玑显示技术有限公司",
+                    content: "光明新区公明街道第一工业区炮台路48号创新云谷",
+                    image: "case2"
+                },
+                {
+                    name: "余姚市仪表四厂",
+                    content: "河南省信阳市商城县长竹园乡",
+                    image: "case3"
+                },
+                {
+                    name: "深圳市莱克斯软管有限公司",
+                    content: "深圳市龙华新区龙华街道工业西路第三工业区20栋第二层",
+                    image: "case4"
+                }
             ]
         },
         methods: {
             handleClick(tab, event) {
-                console.log(tab, event);
+                var tabName = event.target.getAttribute('id')  //获取到当前元素的id
+                if (tabName === 'tab-first') {
+                    this.selectData = this.zncpData
+                    console.log(event.target.getAttribute('id'))
+                }else if (tabName === 'tab-second'){
+                    this.selectData = this.cgalData
+                    console.log(event.target.getAttribute('id'))
+                }
             },
             enterItem: function (position) {
                 var animationEnd = (function (el) {
@@ -128,6 +186,9 @@
                 });
 
             }
+        },
+        mounted() {
+            this.selectData = this.zncpData
         }
     })
 </script>

@@ -23,7 +23,7 @@
     <!--中间内容-->
     <div class="content">
         <div class="line1">
-            <div class="plan-left">
+            <div class="plan-left" v-if="true">
                 <div class="left-item" v-for="(item,index1) in leftData">
                     <div :class="item.isCheck || item.isClick?'line-title-on':'line-title-off'"
                          @mouseenter="enter(index1)"
@@ -31,7 +31,7 @@
                         <i class="el-icon-menu"></i>
                         <div style="margin-left: 10px">{{item.name}}</div>
                     </div>
-                    <div class="line-child-tile"
+                    <div v-if="false" class="line-child-tile"
                          :class="item.isCheck || item.isClick?'line-child-tile-on':'line-child-tile-off'"
                          v-for="(item,index2) in item.data">
                         {{item.name}}
@@ -46,7 +46,7 @@
                     </div>
                     <div style="margin-top: 50px;display: flex;flex-direction: row">
                         <el-button type="primary" plain>方案咨询</el-button>
-                        <el-button type="primary" plain style="margin-left: 40px">应用案例</el-button>
+                        <el-button type="primary" plain style="margin-left: 40px" @click="toProduct">应用案例</el-button>
                     </div>
                 </div>
                 <img :src="'../../img/'+selectData.image">
@@ -57,8 +57,6 @@
                         <el-tab-pane label="方案简介" name="first"></el-tab-pane>
                         <el-tab-pane label="方案功能" name="second"></el-tab-pane>
                         <el-tab-pane label="总体设计" name="third"></el-tab-pane>
-                        <el-tab-pane label="业务流程" name="fourth"></el-tab-pane>
-                        <el-tab-pane label="应用案例" name="five"></el-tab-pane>
                     </el-tabs>
                     <div class="fajj">
                         <div class="fajj-divier"></div>
@@ -87,18 +85,17 @@
                         <div class="fajj-divier"></div>
                         <div class="fajj-title">总体设计</div>
                     </div>
-                    <img src="http://www.kaifakuai.com/img/ddc_bg02.jpg">
-                    <img src="http://www.kaifakuai.com/img/ddc_bg03.jpg">
-                    <div class="fajj">
+                    <img :src="'../../img/'+selectData.ztsj">
+                    <div class="fajj" v-if="false">
                         <div class="fajj-divier"></div>
                         <div class="fajj-title">业务流程</div>
                     </div>
-                    <img src="http://www.kaifakuai.com/img/ddc_bg05.jpg">
-                    <div class="fajj">
+                    <!--<img src="http://www.kaifakuai.com/img/ddc_bg05.jpg">-->
+                    <div class="fajj" v-if="false">
                         <div class="fajj-divier"></div>
                         <div class="fajj-title">应用案例</div>
                     </div>
-                    <img src="http://www.kaifakuai.com/img/kfj_bg4.png">
+                    <!--<img src="http://www.kaifakuai.com/img/kfj_bg4.png">-->
                 </div>
             </div>
             <!--底部-->
@@ -215,7 +212,8 @@
                             title: "语音控制",
                             content: "语音控制客房所有设备, 智能化控制带来高科技体验；打造酒店/民宿独特品牌形象"
                         }
-                    ]
+                    ],
+                    ztsj:"ic_ztsj1.jpg"
                 },
                 {
                     image: "ic_zhjj.png",
@@ -246,7 +244,8 @@
                             title: "全屋离/到家模式",
                             content: "离家模式, 关闭屋中灯光、特定电器并切断某些电源；到家模式, 自动开灯、启动空调等；语音控制"
                         }
-                    ]
+                    ],
+                    ztsj:"ic_ztsj1.jpg"
                 }
             ],
             selectData: []
@@ -327,6 +326,11 @@
                 } else {
                     return null
                 }
+            },
+            //跳转到产品和案例
+            toProduct: function () {
+                var url = "../product/product.html";//此处拼接内容
+                window.location.href = url;
             }
         },
         mounted() {
