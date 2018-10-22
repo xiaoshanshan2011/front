@@ -16,10 +16,9 @@
 <div id="vue_det">
     <!--头部-->
     <div class="header">
-        <iframe src="../header/header5.html" width="100%" height="70px" frameborder="0">
+        <iframe src="../header/header5.html" width="100%" height="220px" frameborder="0">
             您的浏览器不支持iframe，请升级
         </iframe>
-        <div class="divider"></div>
     </div>
     <!--中间内容-->
     <div class="content">
@@ -36,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="line2">
+        <div class="line2" v-if="false">
             <div class="parent">
                 <el-row>
                     <el-col span="8" v-for="(item,position) in 3">

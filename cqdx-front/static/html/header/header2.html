@@ -7,24 +7,33 @@
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
 </head>
 <body>
-<!--头部-->
-<div class="header" id="header">
-    <div class="parent">
-        <div class="title">
-            <div class="left">
-                <img class="logo-img" src="../../img/logo.png">
-                <div class="logo">
-                    <div class="name">晨启兄弟</div>
-                    <div class="domain">itchenqi.com</div>
+<div style="width: 100%" id="header">
+    <!--头部-->
+    <div class="header">
+        <div class="parent">
+            <div class="title">
+                <div class="left">
+                    <img class="logo-img" src="../../img/logo.png">
+                    <div class="logo">
+                        <div class="name">晨启兄弟</div>
+                        <div class="domain">itchenqi.com</div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="item" v-for="(title , position) in titles" @click="clickItem(position)">
+                        <div class="name" :class="title.isCheck?'name-on':'name-off'"
+                             @mouseenter="enter(position)"
+                             @mouseleave="leave(position)">{{title.name}}</div>
+                    </div>
                 </div>
             </div>
-            <div class="right">
-                <div class="item" v-for="(title , position) in titles" @click="clickItem(position)">
-                    <div class="name" :class="title.isCheck?'name-on':'name-off'"
-                         @mouseenter="enter(position)"
-                         @mouseleave="leave(position)">{{title.name}}</div>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div v-if="isShow" class="header_slide" @mouseenter="enter_bottom()"
+         @mouseleave="leave_bottom()">
+        <div class="parent" style="display: flex;align-items: flex-end;flex-direction: column">
+            <div :class="item.isCheck?'header_slide_text_on':'header_slide_text_off'" v-for="(item,position) in jjfaData" @click="jjfa(position)" @mouseenter="enterJjfa(position)"
+                 @mouseleave="leaveJjfa(position)">{{item.name}}</div>
         </div>
     </div>
 </div>
@@ -45,13 +54,24 @@
                     name: '解决方案',
                     isCheck: false
                 },
-                {
+                /*{
                     name:'新闻中心',
                     isCheck: false
-                },
+                },*/
                 {
                     name:'关于我们',
                     isCheck: false
+                }
+            ],
+            isShow: false,
+            jjfaData: [
+                {
+                    name:"C.Q智慧酒店解决方案" ,
+                    isCheck:false
+                },
+                {
+                    name:"C.Q智慧家居解决方案" ,
+                    isCheck:false
                 }
             ]
         },
@@ -64,10 +84,10 @@
                     case 2:
                         parent.location.href = '../plan/plan.html';
                         break;
-                    case 3:
+                    /*case 3:
                         parent.location.href = '../news/news.html';
-                        break;
-                    case 4:
+                        break;*/
+                    case 3:
                         parent.location.href = '../about/about.html';
                         break;
                 }
@@ -76,12 +96,33 @@
                 if (position !== 1) {
                     this.titles[position].isCheck = true;
                 }
+                if (position !== 2) {
+                    this.isShow = false
+                } else {
+                    this.isShow = true
+                }
             },
             leave: function (position) {
                 if (position !== 1) {
                     this.titles[position].isCheck = false;
                 }
-            }
+            },
+            enter_bottom: function () {
+                //this.isShow = true
+            },
+            leave_bottom: function () {
+                this.isShow = false
+            },
+            jjfa (position) {
+                var url = "../plan/plan.html?position=" + position;//此处拼接内容
+                parent.location.href = url;
+            },
+            enterJjfa(position){
+                this.jjfaData[position].isCheck = true
+            },
+            leaveJjfa(position){
+                this.jjfaData[position].isCheck = false
+            },
         }
     })
 </script>

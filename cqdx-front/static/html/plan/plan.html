@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../../img/ic_logo.png" type=image/x-icon>
-    <title>Title</title>
+    <title>解决方案－为客户提供各种智能化家居方案</title>
+    <meta name="description" content="专业的智能产品定制开发服务商，主要从事智能家居智能锁，智能门锁，电子围栏，智能摄像头，智能售酒机，自助售酒机，智能器械监控系统，工业设备监控，数据采集系统等的开发和应用。">
+    <meta name="keywords"
+          content="智能网关、智能开关、智能插座、智能安防、智能家庭安防、智能窗帘、智能家电控制、智能家居、智慧酒店方案、智慧公寓方案、智慧办公方案、智慧安防方案、智能预警系统">
     <script src=" https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/plan.css">
@@ -16,15 +19,14 @@
 <div id="vue_det">
     <!--头部-->
     <div class="header">
-        <iframe src="../header/header3.html" width="100%" height="70px" frameborder="0">
+        <iframe src="../header/header3.html" width="100%" height="220px" frameborder="0">
             您的浏览器不支持iframe，请升级
         </iframe>
-        <div class="divider"></div>
     </div>
     <!--中间内容-->
     <div class="content">
         <div class="line1">
-            <div class="plan-left" v-if="true">
+            <!--<div class="plan-left" v-if="false">
                 <div class="left-item" v-for="(item,index1) in leftData">
                     <div :class="item.isCheck || item.isClick?'line-title-on':'line-title-off'"
                          @mouseenter="enter(index1)"
@@ -38,7 +40,7 @@
                         {{item.name}}
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="top">
                 <div class="plan-top-content">
                     <div class="title">{{selectData.title}}</div>
