@@ -101,6 +101,7 @@ body {
 }
 
 .contact{
+    height: 500px;
     width: 200px;
     display: flex;
     flex-direction: column;
