@@ -78,6 +78,7 @@ body {
     border-bottom: 1.5px solid #5e98ff;
     height: 100%;
     color: #5e98ff;
+    cursor:pointer;
 }
 
 .header .item .name-off {
@@ -89,6 +90,7 @@ body {
     font-size: 15px;
     height: 100%;
     color: #ffffff;
+    cursor:pointer;
 }
 
 .header_slide {
@@ -104,10 +106,12 @@ body {
     width: 260px;
     font-size: 18px;
     color: #fff;
+    cursor:pointer;
 }
 .header_slide_text_on{
     margin-top: 15px;
     width: 260px;
     font-size: 18px;
     color: #5e98ff;
+    cursor:pointer;
 }
