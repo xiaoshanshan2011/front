@@ -11,7 +11,7 @@
 <div class="header" id="header">
     <div class="parent">
         <div class="title">
-            <div class="left">
+            <div class="left" @click="toHome">
                 <img class="logo-img" src="../../img/logo.png">
                 <div class="logo">
                     <div class="name">晨启兄弟</div>
@@ -81,6 +81,10 @@
                 if (position !== 3) {
                     this.titles[position].isCheck = false;
                 }
+            },
+            toHome(){
+                var url = "../../index.html";//此处拼接内容
+                parent.location.href = url;
             }
         }
     })

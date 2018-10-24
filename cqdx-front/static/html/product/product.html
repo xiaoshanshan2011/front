@@ -47,7 +47,7 @@
             <el-row :gutter="30">
                 <el-col span="8" v-for="(item,position) in selectData">
                     <div :id="'item'+position" class="item" @mouseenter="enterItem(position)">
-                        <img :src="'../../img/ic_'+item.image+'.jpg'">
+                        <img :src="'../../img/'+item.image">
                         <div class="item-title">{{item.name}}</div>
                         <div class="item-content">{{item.content}}</div>
                     </div>
@@ -87,7 +87,7 @@
                     "7.多人共享\n" +
                     "8.智能软加密\n" +
                     "9.影片推送至电视\n",
-                    image: "image1"
+                    image: "ic_image1.jpg"
                 },
                 {
                     name: "智能门锁",
@@ -96,7 +96,7 @@
                     "3.开门信息推动；\n" +
                     "4.9种开锁方式；\n" +
                     "5.可接入智能家居系统\n",
-                    image: "image2"
+                    image: "ic_image2.jpg"
                 },
                 {
                     name: "智能售酒机",
@@ -105,13 +105,28 @@
                     "3.扎啤出酒温度为3-7度；\n" +
                     "4.支持微信扫码支付；\n" +
                     "5.24寸触控广告屏\n",
-                    image: "image3"
+                    image: "ic_image3.jpg"
                 },
                 {
                     name: "智能充电",
                     content: "全语音车载系统，可语音控制手机通话，点歌，导航查询等，无需手动，让驾驶更安全",
-                    image: "image4"
-                }
+                    image: "ic_image4.jpg"
+                },
+                {
+                    name: "红外监控",
+                    content: "红外监控拥有夜晚可视，360度控制旋转，终端一键控制，可语音互动，移动设备实施查看",
+                    image: "ic_image5.jpg"
+                },
+                {
+                    name: "可视门铃",
+                    content: "通过移动设备，可实时查看门前状况，有人按门铃时，可语音通话",
+                    image: "ic_image6.jpg"
+                },
+                {
+                    name: "智能插座",
+                    content: "实现app远程控制电路的打开和中断",
+                    image: "ic_image7.jpg"
+                },
             ],
             hzhbData:[
                 {
@@ -139,22 +154,22 @@
                 {
                     name: "深圳市时光电子有限公司",
                     content: "宝安区福永镇凤凰第一工业区华伦科技园21栋",
-                    image: "case1"
+                    image: "ic_case1.jpg"
                 },
                 {
                     name: "深圳市天玑显示技术有限公司",
                     content: "光明新区公明街道第一工业区炮台路48号创新云谷",
-                    image: "case2"
+                    image: "ic_case2.jpg"
                 },
                 {
                     name: "余姚市仪表四厂",
                     content: "河南省信阳市商城县长竹园乡",
-                    image: "case3"
+                    image: "ic_case3.jpg"
                 },
                 {
                     name: "深圳市莱克斯软管有限公司",
                     content: "深圳市龙华新区龙华街道工业西路第三工业区20栋第二层",
-                    image: "case4"
+                    image: "ic_case4.jpg"
                 }
             ]
         },
